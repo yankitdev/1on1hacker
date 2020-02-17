@@ -31,6 +31,7 @@
     <script>
         window.allQuestions = [];
         window.currentQuestion = {};
+        window.questionCount = 0;
         var xhr = new XMLHttpRequest();
         xhr.onload = function () {
             if (xhr.status >= 200 && xhr.status < 300) {
@@ -54,9 +55,12 @@
             var questionCategory = document.getElementById("question-category");
             questionCategory.innerText = window.currentQuestion.category;
 
+            window.questionCount = window.questionCount + 1;
+            
             gtag('event', 'show-question', {
-                  'event_category': 'Question',
-                  'value': window.currentQuestion.id
+                  'event_category': window.currentQuestion.category,
+                  'event_label': window.currentQuestion.id,
+                  'value': window.questionCount
                 });
         }
     </script>
