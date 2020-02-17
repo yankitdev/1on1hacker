@@ -54,7 +54,7 @@
             var questionCategory = document.getElementById("question-category");
             questionCategory.innerText = window.currentQuestion.category;
 
-            gtag('send', 'set' {
+            gtag('send', 'set', {
                   'event_category': 'Question',
                   'value': window.currentQuestion.id
                 });
