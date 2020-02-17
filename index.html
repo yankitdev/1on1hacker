@@ -24,6 +24,7 @@
         background-color: #f5f5f5;
     }
     </style>
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="c28896be-fc86-4e47-8aa0-7408ff4ec6b4" data-blockingmode="auto" type="text/javascript"></script>
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -52,6 +53,12 @@
 
             var questionCategory = document.getElementById("question-category");
             questionCategory.innerText = window.currentQuestion.category;
+
+            ga('send', {
+                hitType: 'event',
+                eventCategory: 'Question',
+                eventAction: 'set',
+                eventValue: window.currentQuestion.id});
         }
     </script>
     <main role="main" class="flex-shrink-0">
@@ -67,11 +74,13 @@
                             <h6 class="card-subtitle mb-2 text-muted" id="question-category">&nbsp;</h6>
                             <p class="card-text" id="question-box">&nbsp;</p>
                             <button class="btn btn-primary my-2" onclick="setQuestion()">Next</button>
+                            <a id="question-twitter" href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <script id="CookieDeclaration" src="https://consent.cookiebot.com/c28896be-fc86-4e47-8aa0-7408ff4ec6b4/cd.js" type="text/javascript" async></script>
     </main>
 
     <footer class="footer mt-auto py-3">
