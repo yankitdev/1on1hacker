@@ -43,7 +43,10 @@
             if (xhr.status >= 200 && xhr.status < 300) {
                 window.allQuestions = JSON.parse(xhr.response);
 
-                window.setQuestion();
+                const params = new URLSearchParams(window.location.search);
+                const questionId = params.get('questionId');
+
+                window.setQuestion(questionId);
             }
         };
         xhr.open('GET', 'https://raw.githubusercontent.com/VGraupera/1on1-questions/master/questions.json');
@@ -53,8 +56,18 @@
             return Math.floor(Math.random() * (length));
         }
 
-        function setQuestion() {
-            window.currentQuestion = window.allQuestions[getRandom(window.allQuestions.length)];
+        function setQuestion(rawQestionId) {
+            let questionId = parseInt(rawQestionId);
+            if(isNaN(questionId)) {
+                window.currentQuestion = window.allQuestions[getRandom(window.allQuestions.length)];
+            }
+            else {
+                window.currentQuestion = window.allQuestions.find(e => e.id === questionId);
+                if(window.currentQuestion === undefined) {
+                    window.currentQuestion = window.allQuestions[getRandom(window.allQuestions.length)];
+                }
+            }
+
             var questionBox = document.getElementById("question-box");
             questionBox.innerText = window.currentQuestion.question;
 
@@ -118,7 +131,9 @@
                 'event_label': window.currentQuestion.id,
             });
 
-            window.open('http://trello.com/add-card?name=Ask on the next 1on1 meeting - ' + window.currentQuestion.category + '&desc=' + window.currentQuestion.question,'popup','width=600,height=600'); 
+            var url = 'http://trello.com/add-card?name=Ask on the next 1on1 meeting - ' + window.currentQuestion.category + 
+                            '&desc=' + window.currentQuestion.question + '   https://1on1hacker.com?questionId=' + window.currentQuestion.id;
+            window.open(url, 'popup','width=600,height=600'); 
             return false;
         }
     </script>
