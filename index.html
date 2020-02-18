@@ -5,11 +5,11 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158590226-1"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-    gtag('config', 'UA-158590226-1');
+        gtag('config', 'UA-158590226-1');
     </script>
 
     <meta charset="utf-8">
@@ -20,17 +20,17 @@
     <title>1-on-1 random question</title>
 
     <style>
-    .footer {
-        background-color: #f5f5f5;
-    }
+        .footer {
+            background-color: #f5f5f5;
+        }
 
-    button.close {
-        position: absolute;
-        right: 0.5em;
-    }
-
+        button.close {
+            position: absolute;
+            right: 0.5em;
+        }
     </style>
-    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="c28896be-fc86-4e47-8aa0-7408ff4ec6b4" data-blockingmode="auto" type="text/javascript"></script>
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="c28896be-fc86-4e47-8aa0-7408ff4ec6b4"
+        data-blockingmode="auto" type="text/javascript"></script>
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -62,26 +62,25 @@
             questionCategory.innerText = window.currentQuestion.category;
 
             window.questionCount = window.questionCount + 1;
-            
+
             gtag('event', 'show-question', {
-                  'event_category': window.currentQuestion.category,
-                  'event_label': window.currentQuestion.id,
-                  'value': window.questionCount
-                });
+                'event_category': window.currentQuestion.category,
+                'event_label': window.currentQuestion.id,
+                'value': window.questionCount
+            });
         }
 
         function closeAd() {
             setCookie("ad", "1", "30");
             removeAdBlock();
             gtag('event', 'close-ad', {
-                  'event_category': "Ad",
-                  'event_label': "valycs.com",
-                });
+                'event_category': "Ad",
+                'event_label': "valycs.com",
+            });
         }
 
         function prepareAd() {
-            if(getCookie("ad") !== "")
-            {
+            if (getCookie("ad") !== "") {
                 removeAdBlock();
             }
         }
@@ -94,29 +93,41 @@
         function setCookie(cname, cvalue, exdays) {
             var d = new Date();
             d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-            var expires = "expires="+d.toUTCString();
+            var expires = "expires=" + d.toUTCString();
             document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
         }
 
         function getCookie(cname) {
             var name = cname + "=";
             var ca = document.cookie.split(';');
-            for(var i = 0; i < ca.length; i++) {
+            for (var i = 0; i < ca.length; i++) {
                 var c = ca[i];
                 while (c.charAt(0) == ' ') {
-                c = c.substring(1);
+                    c = c.substring(1);
                 }
                 if (c.indexOf(name) == 0) {
-                return c.substring(name.length, c.length);
+                    return c.substring(name.length, c.length);
                 }
             }
             return "";
+        }
+
+        function addToTrello() {
+            gtag('event', 'send-to-trello', {
+                'event_category': window.currentQuestion.category,
+                'event_label': window.currentQuestion.id,
+            });
+
+            window.open('http://trello.com/add-card?name=Ask on the next 1on1 meeting - ' + window.currentQuestion.category + '&desc=' + window.currentQuestion.question,'popup','width=600,height=600'); 
+            return false;
         }
     </script>
     <main role="main" class="flex-shrink-0">
         <div class="container mb-3">
             <h1 class="mt-5">Random 1-on-1 question</h1>
-            <p class="lead">Full list of questions can be found here - <a href="https://github.com/VGraupera/1on1-questions">https://github.com/VGraupera/1on1-questions</a>.</p>
+            <p class="lead">Full list of questions can be found here - <a
+                    href="https://github.com/VGraupera/1on1-questions">https://github.com/VGraupera/1on1-questions</a>.
+            </p>
             <!-- <p>Use <a href="/docs/4.4/examples/sticky-footer-navbar/">the sticky footer with a fixed navbar</a> if need be, too.</p> -->
             <div class="row">
                 <div class="col">
@@ -126,7 +137,16 @@
                             <h6 class="card-subtitle mb-2 text-muted" id="question-category">&nbsp;</h6>
                             <p class="card-text" id="question-box">&nbsp;</p>
                             <button class="btn btn-primary my-2" onclick="setQuestion()">Next</button>
-                            <a id="question-twitter" href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                            <div class="float-right">
+                                <a id="question-twitter" href="https://twitter.com/share?ref_src=twsrc%5Etfw"
+                                    class="twitter-share-button" data-show-count="false">Tweet</a>
+                                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                                <!-- href="https://trello.com/add-card" -->
+                                <a class="pl-3" target="popup" onclick="addToTrello()"><img
+                                        alt="Add to Trello" height="40" width="144"
+                                        src="https://p.trellocdn.com/add_to_trello.png"
+                                        srcset="https://p.trellocdn.com/add_to_trello.png 1x, https://p.trellocdn.com/add_to_trello@2x.png 2x" /></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -139,8 +159,10 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <h4 class="pr-5"><a href="https://valycs.com">Software Engineering Analytics | valycs.com</a></h4>
-                        <span>Improve your dev team velocity with data insights. Full coverage of software delivery. Free trial.</span>
+                        <h4 class="pr-5"><a href="https://valycs.com">Software Engineering Analytics | valycs.com</a>
+                        </h4>
+                        <span>Improve your dev team velocity with data insights. Full coverage of software delivery.
+                            Free trial.</span>
                     </div>
                 </div>
             </div>
@@ -149,7 +171,8 @@
 
     <footer class="footer mt-auto py-3">
         <div class="container">
-            <span class="text-muted">Made with &#x2764; by <a href="valycs.com">valycs.com</a> - all dev metrics in one place.</span>
+            <span class="text-muted">Made with &#x2764; by <a href="valycs.com">valycs.com</a> - all dev metrics in one
+                place.</span>
         </div>
     </footer>
     <!-- Optional JavaScript -->
