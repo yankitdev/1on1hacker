@@ -2,201 +2,398 @@
 <html lang="en" class="h-100">
 
 <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158590226-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <meta name="generator" content="Hugo 0.64.1" />
 
-        gtag('config', 'UA-158590226-1');
-    </script>
+  
+  <meta name="description" content="Random 1-on-1 question">
+  
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://1on1hacker.com/apple-touch-icon.png">
 
-    <title>1-on-1 random question</title>
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="https://1on1hacker.com/favicon-32x32.png">
 
-    <style>
-        .footer {
-            background-color: #f5f5f5;
-        }
+  
+  <link rel="icon" type="image/png" sizes="16x16" href="https://1on1hacker.com/favicon-16x16.png">
 
-        button.close {
-            position: absolute;
-            right: 0.5em;
-        }
-    </style>
-    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="c28896be-fc86-4e47-8aa0-7408ff4ec6b4"
-        data-blockingmode="auto" type="text/javascript"></script>
+  
+  <link rel="mask-icon" href="https://1on1hacker.com/safari-pinned-tab.svg" color="#5bbad5">
+
+  <meta name="msapplication-TileColor" content="#da532c">
+
+  <meta name="theme-color" content="#ffffff">
+
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  
+  
+  
+    
+      
+    
+  
+  <title>Home | Random 1-on-1 question</title>
+  
+
+  <style>
+body {
+  min-width: 300px;
+}
+
+.custom-navbar {
+  margin-bottom: 1em;
+  height: 60px;
+}
+
+.custom-navbar a {
+  display: inline-block; 
+  padding: 18px 0;
+  margin-right: 1em; 
+  font-weight: bold; 
+}
+
+.custom-navbar a:hover,
+.custom-navbar a:focus {
+  text-decoration: none; 
+}
+
+@media print {
+  .custom-navbar {
+    display: none;
+  }
+}
+
+article {
+  padding-bottom: 1em;
+}
+
+img {
+  max-width: 100%;
+}
+
+
+body {
+  background-color: #fff;
+}
+
+
+
+body {
+  color: #212529;
+}
+
+
+
+a {
+  color: #007bff;
+}
+
+
+
+a:hover,
+a:focus {
+  color: #0056b3;
+}
+
+
+
+.custom-navbar {
+  background-color: #212529;
+}
+
+
+
+.custom-navbar a {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+
+
+.custom-navbar a:hover,
+.custom-navbar a:focus {
+  color: rgba(255, 255, 255, 1);
+}
+
+
+
+.container {
+  max-width: 800px;
+}
+
+
+
+pre {
+  display: block;
+  padding: 9.5px;
+  word-break: break-all;
+  word-wrap: break-word;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit; 
+  white-space: pre-wrap;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+}
+
+code {
+  padding: 2px 4px;
+  color: inherit; 
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: .9em;
+}
+
+
+
+blockquote,
+.blockquote {
+  padding: 10px 20px;
+  margin: 0 0 20px;
+  font-size: 1em;
+  border-left: 5px solid #6c757d;
+}
+
+</style>
+
+  <style>
+    .footer {
+        background-color: #f5f5f5;
+    }
+
+    button.close {
+        position: absolute;
+        right: 0.5em;
+    }
+</style>
+
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158590226-1"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+
+      gtag('config', 'UA-158590226-1');
+  </script>
+  
+
 </head>
 
 <body class="d-flex flex-column h-100">
-    <script>
-        window.allQuestions = [];
-        window.currentQuestion = {};
-        window.questionCount = 0;
-        var xhr = new XMLHttpRequest();
-        xhr.onload = function () {
-            if (xhr.status >= 200 && xhr.status < 300) {
-                window.allQuestions = JSON.parse(xhr.response);
+  <nav class="custom-navbar">
+  <div class="container">
+    
+    <a href="/">Home</a>
+    
+    <a href="/all-questions/">All questions</a>
+    
+    <a href="/tools/">Tools</a>
+    
+    <a href="/submit-your-question/">Submit your question</a>
+    
+  </div>
+</nav>
 
-                const params = new URLSearchParams(window.location.search);
-                const questionId = params.get('questionId');
+  <main role="main" class="flex-shrink-0">
+    <div class="container">
+      <article>
+        
 
-                window.setQuestion(questionId);
-            }
-        };
-        xhr.open('GET', 'https://raw.githubusercontent.com/VGraupera/1on1-questions/master/questions.json');
-        xhr.send();
+  
+    
+  
 
-        function getRandom(length) {
-            return Math.floor(Math.random() * (length));
-        }
+<h1>Home</h1>
 
-        function setQuestion(rawQestionId) {
-            let questionId = parseInt(rawQestionId);
-            if (isNaN(questionId)) {
-                window.currentQuestion = window.allQuestions[getRandom(window.allQuestions.length)];
-            }
-            else {
-                window.currentQuestion = window.allQuestions.find(e => e.id === questionId);
-                if (window.currentQuestion === undefined) {
-                    window.currentQuestion = window.allQuestions[getRandom(window.allQuestions.length)];
-                }
-            }
+<script>
+  window.allQuestions = [];
+  window.currentQuestion = {};
+  window.questionCount = 0;
+  var xhr = new XMLHttpRequest();
+  xhr.onload = function () {
+      if (xhr.status >= 200 && xhr.status < 300) {
+          window.allQuestions = JSON.parse(xhr.response);
 
-            var questionBox = document.getElementById("question-box");
-            questionBox.innerText = window.currentQuestion.question;
+          const params = new URLSearchParams(window.location.search);
+          const questionId = params.get('questionId');
 
-            var questionCategory = document.getElementById("question-category");
-            questionCategory.innerText = window.currentQuestion.category;
+          window.setQuestion(questionId);
+      }
+  };
+  xhr.open('GET', 'https://raw.githubusercontent.com/VGraupera/1on1-questions/master/questions.json');
+  xhr.send();
 
-            window.questionCount = window.questionCount + 1;
+  function getRandom(length) {
+      return Math.floor(Math.random() * (length));
+  }
 
-            gtag('event', 'show-question', {
-                'event_category': window.currentQuestion.category,
-                'event_label': window.currentQuestion.id,
-                'value': window.questionCount
-            });
-        }
+  function setQuestion(rawQestionId) {
+      let questionId = parseInt(rawQestionId);
+      if (isNaN(questionId)) {
+          window.currentQuestion = window.allQuestions[getRandom(window.allQuestions.length)];
+      }
+      else {
+          window.currentQuestion = window.allQuestions.find(e => e.id === questionId);
+          if (window.currentQuestion === undefined) {
+              window.currentQuestion = window.allQuestions[getRandom(window.allQuestions.length)];
+          }
+      }
 
-        function closeAd() {
-            setCookie("ad", "1", "30");
-            removeAdBlock();
-            gtag('event', 'close-ad', {
-                'event_category': "Ad",
-                'event_label': "valycs.com",
-            });
-        }
+      var questionBox = document.getElementById("question-box");
+      questionBox.innerText = window.currentQuestion.question;
 
-        function prepareAd() {
-            if (getCookie("ad") !== "") {
-                removeAdBlock();
-            }
-        }
+      var questionCategory = document.getElementById("question-category");
+      questionCategory.innerText = window.currentQuestion.category;
 
-        function removeAdBlock() {
-            var adBox = document.getElementById("ad-box-row");
-            adBox.parentElement.removeChild(adBox);
-        }
+      window.questionCount = window.questionCount + 1;
 
-        function setCookie(cname, cvalue, exdays) {
-            var d = new Date();
-            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-            var expires = "expires=" + d.toUTCString();
-            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-        }
+      gtag('event', 'show-question', {
+          'event_category': window.currentQuestion.category,
+          'event_label': window.currentQuestion.id,
+          'value': window.questionCount
+      });
+  }
 
-        function getCookie(cname) {
-            var name = cname + "=";
-            var ca = document.cookie.split(';');
-            for (var i = 0; i < ca.length; i++) {
-                var c = ca[i];
-                while (c.charAt(0) == ' ') {
-                    c = c.substring(1);
-                }
-                if (c.indexOf(name) == 0) {
-                    return c.substring(name.length, c.length);
-                }
-            }
-            return "";
-        }
+  function closeAd() {
+      setCookie("ad", "1", "30");
+      removeAdBlock();
+      gtag('event', 'close-ad', {
+          'event_category': "Ad",
+          'event_label': "valycs.com",
+      });
+  }
 
-        function addToTrello() {
-            gtag('event', 'send-to-trello', {
-                'event_category': window.currentQuestion.category,
-                'event_label': window.currentQuestion.id,
-            });
+  function prepareAd() {
+      if (getCookie("ad") !== "") {
+          removeAdBlock();
+      }
+  }
 
-            var url = 'http://trello.com/add-card?name=Ask on the next 1on1 meeting - ' + window.currentQuestion.category +
-                '&desc=' + window.currentQuestion.question + '   https://1on1hacker.com?questionId=' + window.currentQuestion.id;
-            window.open(url, 'popup', 'width=600,height=600');
-            return false;
-        }
-    </script>
-    <main role="main" class="flex-shrink-0">
-        <div class="container mb-3">
-            <h1 class="mt-5">Random 1-on-1 question</h1>
-            <p class="lead">Full list of questions can be found here - <a
-                    href="https://github.com/VGraupera/1on1-questions">https://github.com/VGraupera/1on1-questions</a>.
-            </p>
-            <!-- <p>Use <a href="/docs/4.4/examples/sticky-footer-navbar/">the sticky footer with a fixed navbar</a> if need be, too.</p> -->
-            <div class="row">
-                <div class="col">
-                    <div class="card w-100 p-3">
-                        <div class="card-body">
-                            <h5 class="card-title">Question</h5>
-                            <h6 class="card-subtitle mb-2 text-muted" id="question-category">&nbsp;</h6>
-                            <p class="card-text" id="question-box">&nbsp;</p>
-                            <button class="btn btn-primary my-2" onclick="setQuestion()">Next</button>
-                            <div class="float-right">
-                                <a id="question-twitter" href="https://twitter.com/share?ref_src=twsrc%5Etfw"
-                                    class="twitter-share-button" data-show-count="false">Tweet</a>
-                                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                                <!-- href="https://trello.com/add-card" -->
-                                <a class="pl-3" target="popup" onclick="addToTrello()"><img alt="Add to Trello"
-                                        height="40" width="144" src="https://p.trellocdn.com/add_to_trello.png"
-                                        srcset="https://p.trellocdn.com/add_to_trello.png 1x, https://p.trellocdn.com/add_to_trello@2x.png 2x" /></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row" id="ad-box-row">
-                <div class="col">
-                    <div class="ad-box card w-100 mt-3 p-3">
-                        <div class="float-right position-relative">
-                            <button onclick="closeAd()" type="button" title="Hide ad" class="close" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <h4 class="pr-5"><a href="https://valycs.com">Software Engineering Analytics | valycs.com</a>
-                        </h4>
-                        <span>Improve your dev team velocity with data insights. Full coverage of software delivery.
-                            Free trial.</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
+  function removeAdBlock() {
+      var adBox = document.getElementById("ad-box-row");
+      adBox.parentElement.removeChild(adBox);
+  }
 
-    <footer class="footer mt-auto py-3">
-        <div class="container">
-            <span class="text-muted">Made with &#x2764; by <a href="valycs.com">valycs.com</a> - all dev metrics in one
-                place.</span>
-        </div>
-    </footer>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
-    <script>
-        prepareAd();
-    </script>
+  function setCookie(cname, cvalue, exdays) {
+      var d = new Date();
+      d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+      var expires = "expires=" + d.toUTCString();
+      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
+
+  function getCookie(cname) {
+      var name = cname + "=";
+      var ca = document.cookie.split(';');
+      for (var i = 0; i < ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == ' ') {
+              c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+              return c.substring(name.length, c.length);
+          }
+      }
+      return "";
+  }
+
+  function addToTrello() {
+      gtag('event', 'send-to-trello', {
+          'event_category': window.currentQuestion.category,
+          'event_label': window.currentQuestion.id,
+      });
+
+      var url = 'http://trello.com/add-card?name=Ask on the next 1on1 meeting - ' + window.currentQuestion.category +
+          '&desc=' + window.currentQuestion.question + '   https://1on1hacker.com?questionId=' + window.currentQuestion.id;
+      window.open(url, 'popup', 'width=600,height=600');
+      return false;
+  }
+</script>
+<p class="lead">Full list of questions can be found here - <a
+      href="https://github.com/VGraupera/1on1-questions">https://github.com/VGraupera/1on1-questions</a>.
+</p>
+<div class="row">
+  <div class="col">
+      <div class="card w-100 p-3">
+          <div class="card-body">
+              <h5 class="card-title">Question</h5>
+              <h6 class="card-subtitle mb-2 text-muted" id="question-category">&nbsp;</h6>
+              <p class="card-text" id="question-box">&nbsp;</p>
+              <button class="btn btn-primary my-2" onclick="setQuestion()">Next</button>
+              <div class="float-right">
+                  <a id="question-twitter" href="https://twitter.com/share?ref_src=twsrc%5Etfw"
+                      class="twitter-share-button" data-show-count="false">Tweet</a>
+                  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                  <a class="pl-3" target="popup" onclick="addToTrello()"><img alt="Add to Trello" height="40"
+                          width="144" src="https://p.trellocdn.com/add_to_trello.png"
+                          srcset="https://p.trellocdn.com/add_to_trello.png 1x, https://p.trellocdn.com/add_to_trello@2x.png 2x" /></a>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<div class="row" id="ad-box-row">
+  <div class="col">
+      <div class="ad-box card w-100 mt-3 p-3">
+          <div class="float-right position-relative">
+              <button onclick="closeAd()" type="button" title="Hide ad" class="close" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <h4 class="pr-5"><a href="https://valycs.com">Software Engineering Analytics | valycs.com</a>
+          </h4>
+          <span>Improve your dev team velocity with data insights. Full coverage of software delivery.
+              Free trial.</span>
+      </div>
+  </div>
+</div>
+<script>
+  prepareAd();
+</script>
+
+
+      </article>
+    </div>
+  </main>
+
+  
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158590226-1"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+
+      gtag('config', 'UA-158590226-1');
+  </script>
+  
+
+  
+
+  
+  
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="c28896be-fc86-4e47-8aa0-7408ff4ec6b4" data-blockingmode="auto" type="text/javascript"></script>
+  
+
+
+  <footer class="footer mt-auto py-3">
+    <div class="container">
+      <span class="text-muted">Made with &#x2764; by <a href="https://valycs.com?ref=footer">valycs.com</a> - all dev metrics in one place.</span>
+    </div>
+  </footer>
 </body>
 
 </html>

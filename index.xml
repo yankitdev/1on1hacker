@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Random 1-on-1 question</title>
+    <link>https://1on1hacker.com/</link>
+    <description>Recent content on Random 1-on-1 question</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 18 Feb 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://1on1hacker.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About</title>
+      <link>https://1on1hacker.com/about/</link>
+      <pubDate>Tue, 18 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://1on1hacker.com/about/</guid>
+      <description>About page</description>
+    </item>
+    
+    <item>
+      <title>Submit your question</title>
+      <link>https://1on1hacker.com/submit-your-question/</link>
+      <pubDate>Tue, 18 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://1on1hacker.com/submit-your-question/</guid>
+      <description>(function(t,e,s,n){var o,a,c;t.SMCX=t.SMCX||[],e.getElementById(n)||(o=e.getElementsByTagName(s),a=o[o.length-1],c=e.createElement(s),c.type=&#34;text/javascript&#34;,c.async=!0,c.id=n,c.src=[&#34;https:&#34;===location.protocol?&#34;https://&#34;:&#34;http://&#34;,&#34;widget.surveymonkey.com/collect/website/js/tRaiETqnLgj758hTBazgd2rsHBOZO6sQOUs4ZDGGgOYj_2FrIbni0gEXoMf0d5wNvz.js&#34;].join(&#34;&#34;),a.parentNode.insertBefore(c,a))})(window,document,&#34;script&#34;,&#34;smcx-sdk&#34;);Create your own user feedback survey  </description>
+    </item>
+    
+    <item>
+      <title>All Questions</title>
+      <link>https://1on1hacker.com/all-questions/</link>
+      <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://1on1hacker.com/all-questions/</guid>
+      <description>Full list of questions can be found here - https://github.com/VGraupera/1on1-questions. (function(t,e,s,n){var o,a,c;t.SMCX=t.SMCX||[],e.getElementById(n)||(o=e.getElementsByTagName(s),a=o[o.length-1],c=e.createElement(s),c.type=&#34;text/javascript&#34;,c.async=!0,c.id=n,c.src=[&#34;https:&#34;===location.protocol?&#34;https://&#34;:&#34;http://&#34;,&#34;widget.surveymonkey.com/collect/website/js/tRaiETqnLgj758hTBazgd2rsHBOZO6sQOUs4ZDGGgOYj_2FrIbni0gEXoMf0d5wNvz.js&#34;].join(&#34;&#34;),a.parentNode.insertBefore(c,a))})(window,document,&#34;script&#34;,&#34;smcx-sdk&#34;);Create your own user feedback survey  </description>
+    </item>
+    
+    <item>
+      <title>Tools</title>
+      <link>https://1on1hacker.com/tools/</link>
+      <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://1on1hacker.com/tools/</guid>
+      <description> https://lattice.com/one-on-ones https://valycs.com https://trello.com/b/FoIwUPz2/1-on-1-meeting-agenda Notebook &amp;amp; pencil  Where to find help?  https://www.atlassian.com/blog/inside-atlassian/1-on-1-meeting-tips https://rework.withgoogle.com/guides/managers-coach-managers-to-coach/steps/hold-effective-1-1-meetings/ https://blog.asana.com/2017/12/one-on-one-meeting-agenda/ https://randsinrepose.com/welcome-to-rands-leadership-slack/  </description>
+    </item>
+    
+  </channel>
+</rss>
