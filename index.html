@@ -327,37 +327,44 @@ blockquote,
   window.ads = [{
     text: "Improve your dev team velocity with data insights. Full coverage of software delivery. Free trial.",
     header: "Software Engineering Analytics | valycs.com",
-    url : "https://valycs.com"
+    url : "https://valycs.com",
+    campaign: "software-analytics"
   },
   {
     text: "Improve dev's team performance by up 20% in 6 weeks.",
     header: "Ship faster with valycs.com",
-    url : "https://valycs.com"
+    url : "https://valycs.com",
+    campaign: "ship-faster"
   },
   {
     text: "Optimize releases of your team with an agile analytics tool.",
     header: "Delivery debugger for software teams | valycs.com",
-    url : "https://valycs.com"
+    url : "https://valycs.com",
+    campaign: "delivery-debugger-teams"
   },
   {
     text: "Improve your team' satisfaction with better meetings.",
     header: "Add context to 1-on-1 meetings | valycs.com",
-    url : "https://valycs.com"
+    url : "https://valycs.com",
+    campaign: "1-on-1"
   },
   {
     text: "Improve your cycle time drastically in 2020.",
     header: "Delivery debugger for faster releases | valycs.com",
-    url : "https://valycs.com"
+    url : "https://valycs.com",
+    campaign: "delivery-debugger-releases"
   },
   {
     text: "Remove lean wastes with delivery debugger.",
     header: "Delivery debugger for agile teams | valycs.com",
-    url : "https://valycs.com"
+    url : "https://valycs.com",
+    campaign: "delivery-debugger"
   },
   {
     text: "Valycs helps software team spend less time managing agile process and more time adding innovations.",
     header: "Focus on innovations | valycs.com",
-    url : "https://valycs.com"
+    url : "https://valycs.com",
+    campaign: "innovations"
   }];
   window.activeAd = 0;
 
@@ -389,7 +396,7 @@ blockquote,
       'event_label': window.ads[window.activeAd].text,
     });
 
-    window.location.href = window.ads[window.activeAd].url;
+    window.location.href = window.ads[window.activeAd].url + "?utm_source=1on1hacker&utm_campaign=" + window.ads[window.activeAd].campaign;
   }
 
 </script>
