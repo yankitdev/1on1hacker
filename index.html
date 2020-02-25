@@ -212,9 +212,9 @@ blockquote,
       <article>
         
 
-  
-    
-  
+
+
+
 
 <h1>Home</h1>
 
@@ -224,139 +224,206 @@ blockquote,
   window.questionCount = 0;
   var xhr = new XMLHttpRequest();
   xhr.onload = function () {
-      if (xhr.status >= 200 && xhr.status < 300) {
-          window.allQuestions = JSON.parse(xhr.response);
+    if (xhr.status >= 200 && xhr.status < 300) {
+      window.allQuestions = JSON.parse(xhr.response);
 
-          const params = new URLSearchParams(window.location.search);
-          const questionId = params.get('questionId');
+      const params = new URLSearchParams(window.location.search);
+      const questionId = params.get('questionId');
 
-          window.setQuestion(questionId);
-      }
+      window.setQuestion(questionId);
+    }
   };
   xhr.open('GET', 'https://raw.githubusercontent.com/VGraupera/1on1-questions/master/questions.json');
   xhr.send();
 
   function getRandom(length) {
-      return Math.floor(Math.random() * (length));
+    return Math.floor(Math.random() * (length));
   }
 
   function setQuestion(rawQestionId) {
-      let questionId = parseInt(rawQestionId);
-      if (isNaN(questionId)) {
-          window.currentQuestion = window.allQuestions[getRandom(window.allQuestions.length)];
+    let questionId = parseInt(rawQestionId);
+    if (isNaN(questionId)) {
+      window.currentQuestion = window.allQuestions[getRandom(window.allQuestions.length)];
+    }
+    else {
+      window.currentQuestion = window.allQuestions.find(e => e.id === questionId);
+      if (window.currentQuestion === undefined) {
+        window.currentQuestion = window.allQuestions[getRandom(window.allQuestions.length)];
       }
-      else {
-          window.currentQuestion = window.allQuestions.find(e => e.id === questionId);
-          if (window.currentQuestion === undefined) {
-              window.currentQuestion = window.allQuestions[getRandom(window.allQuestions.length)];
-          }
-      }
+    }
 
-      var questionBox = document.getElementById("question-box");
-      questionBox.innerText = window.currentQuestion.question;
+    var questionBox = document.getElementById("question-box");
+    questionBox.innerText = window.currentQuestion.question;
 
-      var questionCategory = document.getElementById("question-category");
-      questionCategory.innerText = window.currentQuestion.category;
+    var questionCategory = document.getElementById("question-category");
+    questionCategory.innerText = window.currentQuestion.category;
 
-      window.questionCount = window.questionCount + 1;
+    window.questionCount = window.questionCount + 1;
 
-      gtag('event', 'show-question', {
-          'event_category': window.currentQuestion.category,
-          'event_label': window.currentQuestion.id,
-          'value': window.questionCount
-      });
+    gtag('event', 'show-question', {
+      'event_category': window.currentQuestion.category,
+      'event_label': window.currentQuestion.id,
+      'value': window.questionCount
+    });
   }
 
   function closeAd() {
-      setCookie("ad", "1", "30");
-      removeAdBlock();
-      gtag('event', 'close-ad', {
-          'event_category': "Ad",
-          'event_label': "valycs.com",
-      });
+    setCookie("ad", "1", "30");
+    removeAdBlock();
+    gtag('event', 'close-ad', {
+      'event_category': "Ad",
+      'event_label': "valycs.com",
+    });
   }
 
   function prepareAd() {
-      if (getCookie("ad") !== "") {
-          removeAdBlock();
-      }
+    if (getCookie("ad") !== "") {
+      removeAdBlock();
+    }
+    else {
+      rotateAd();
+    }
   }
 
   function removeAdBlock() {
-      var adBox = document.getElementById("ad-box-row");
-      adBox.parentElement.removeChild(adBox);
+    var adBox = document.getElementById("ad-box-row");
+    adBox.parentElement.removeChild(adBox);
   }
 
   function setCookie(cname, cvalue, exdays) {
-      var d = new Date();
-      d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-      var expires = "expires=" + d.toUTCString();
-      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
   }
 
   function getCookie(cname) {
-      var name = cname + "=";
-      var ca = document.cookie.split(';');
-      for (var i = 0; i < ca.length; i++) {
-          var c = ca[i];
-          while (c.charAt(0) == ' ') {
-              c = c.substring(1);
-          }
-          if (c.indexOf(name) == 0) {
-              return c.substring(name.length, c.length);
-          }
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
       }
-      return "";
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
   }
 
   function addToTrello() {
-      gtag('event', 'send-to-trello', {
-          'event_category': window.currentQuestion.category,
-          'event_label': window.currentQuestion.id,
-      });
+    gtag('event', 'send-to-trello', {
+      'event_category': window.currentQuestion.category,
+      'event_label': window.currentQuestion.id,
+    });
 
-      var url = 'http://trello.com/add-card?name=Ask on the next 1on1 meeting - ' + window.currentQuestion.category +
-          '&desc=' + window.currentQuestion.question + '   https://1on1hacker.com?questionId=' + window.currentQuestion.id;
-      window.open(url, 'popup', 'width=600,height=600');
-      return false;
+    var url = 'http://trello.com/add-card?name=Ask on the next 1on1 meeting - ' + window.currentQuestion.category +
+      '&desc=' + window.currentQuestion.question + '   https://1on1hacker.com?questionId=' + window.currentQuestion.id;
+    window.open(url, 'popup', 'width=600,height=600');
+    return false;
   }
+
+  window.ads = [{
+    text: "Improve your dev team velocity with data insights. Full coverage of software delivery. Free trial.",
+    header: "Software Engineering Analytics | valycs.com",
+    url : "https://valycs.com"
+  },
+  {
+    text: "Improve dev's team performance by up 20% in 6 weeks.",
+    header: "Ship faster with valycs.com",
+    url : "https://valycs.com"
+  },
+  {
+    text: "Optimize releases of your team with an agile analytics tool.",
+    header: "Delivery debugger for software teams | valycs.com",
+    url : "https://valycs.com"
+  },
+  {
+    text: "Improve your team' satisfaction with better meetings.",
+    header: "Add context to 1-on-1 meetings | valycs.com",
+    url : "https://valycs.com"
+  },
+  {
+    text: "Improve your cycle time drastically in 2020.",
+    header: "Delivery debugger for faster releases | valycs.com",
+    url : "https://valycs.com"
+  },
+  {
+    text: "Remove lean wastes with delivery debugger.",
+    header: "Delivery debugger for agile teams | valycs.com",
+    url : "https://valycs.com"
+  },
+  {
+    text: "Valycs helps software team spend less time managing agile process and more time adding innovations.",
+    header: "Focus on innovations | valycs.com",
+    url : "https://valycs.com"
+  }];
+  window.activeAd = 0;
+
+  function rotateAd() {
+    if(window.adTimer) {
+      window.clearTimeout(window.adTimer);
+    };
+
+    var randId = getRandom(window.ads.length);
+    window.activeAd = randId;
+
+    var header = document.getElementById("ad-header");
+    header.innerText = window.ads[window.activeAd].header;
+
+    var text = document.getElementById("ad-text");
+    text.innerText = window.ads[window.activeAd].text;
+
+    window.adTimer = setTimeout(rotateAd, 15000) 
+  }
+
+  function adClickLogger() {
+    gtag('event', 'ad-click', {
+      'event_category': window.ads[window.activeAd].header,
+      'event_label': window.ads[window.activeAd].text,
+    });
+
+    window.location.href = window.ads[window.activeAd].url;
+  }
+
 </script>
 <p class="lead">Full list of questions can be found here - <a
-      href="https://github.com/VGraupera/1on1-questions">https://github.com/VGraupera/1on1-questions</a>.
+    href="https://github.com/VGraupera/1on1-questions">https://github.com/VGraupera/1on1-questions</a>.
 </p>
 <div class="row">
   <div class="col">
-      <div class="card w-100 p-3">
-          <div class="card-body">
-              <h5 class="card-title">Question</h5>
-              <h6 class="card-subtitle mb-2 text-muted" id="question-category">&nbsp;</h6>
-              <p class="card-text" id="question-box">&nbsp;</p>
-              <button class="btn btn-primary my-2" onclick="setQuestion()">Next</button>
-              <div class="float-right">
-                  <a id="question-twitter" href="https://twitter.com/share?ref_src=twsrc%5Etfw"
-                      class="twitter-share-button" data-show-count="false">Tweet</a>
-                  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                  <a class="pl-3" target="popup" onclick="addToTrello()"><img alt="Add to Trello" height="40"
-                          width="144" src="https://p.trellocdn.com/add_to_trello.png"
-                          srcset="https://p.trellocdn.com/add_to_trello.png 1x, https://p.trellocdn.com/add_to_trello@2x.png 2x" /></a>
-              </div>
-          </div>
+    <div class="card w-100 p-3">
+      <div class="card-body">
+        <h5 class="card-title">Question</h5>
+        <h6 class="card-subtitle mb-2 text-muted" id="question-category">&nbsp;</h6>
+        <p class="card-text" id="question-box">&nbsp;</p>
+        <button class="btn btn-primary my-2" onclick="setQuestion()">Next</button>
+        <div class="float-right">
+          <a id="question-twitter" href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
+            data-show-count="false">Tweet</a>
+          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          <a class="pl-3" target="popup" onclick="addToTrello()"><img alt="Add to Trello" height="40" width="144"
+              src="https://p.trellocdn.com/add_to_trello.png"
+              srcset="https://p.trellocdn.com/add_to_trello.png 1x, https://p.trellocdn.com/add_to_trello@2x.png 2x" /></a>
+        </div>
       </div>
+    </div>
   </div>
 </div>
 <div class="row" id="ad-box-row">
   <div class="col">
-      <div class="ad-box card w-100 mt-3 p-3">
-          <div class="float-right position-relative">
-              <button onclick="closeAd()" type="button" title="Hide ad" class="close" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-              </button>
-          </div>
-          <h4 class="pr-5"><a href="https://valycs.com">Software Engineering Analytics | valycs.com</a>
-          </h4>
-          <span>Improve your dev team velocity with data insights. Full coverage of software delivery.
-              Free trial.</span>
+    <div class="ad-box card w-100 mt-3 p-3">
+      <div class="float-right position-relative">
+        <button onclick="closeAd()" type="button" title="Hide ad" class="close" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
+      <h4 class="pr-5"><a id="ad-header" href="javascript:void(0)" onclick="adClickLogger()">Software Engineering Analytics | valycs.com</a>
+      </h4>
+      <span id="ad-text">Improve your dev team velocity with data insights. Full coverage of software delivery.
+        Free trial.</span>
+    </div>
   </div>
 </div>
 <script>
