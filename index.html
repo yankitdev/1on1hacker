@@ -375,6 +375,11 @@ blockquote,
     var text = document.getElementById("ad-text");
     text.innerText = window.ads[window.activeAd].text;
 
+    gtag('event', 'ad-rotate', {
+      'event_category': window.ads[window.activeAd].header,
+      'event_label': window.ads[window.activeAd].text,
+    });
+
     window.adTimer = setTimeout(rotateAd, 15000) 
   }
 
